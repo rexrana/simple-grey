@@ -1,0 +1,68 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<div id="skiplinks">
+	    <a href="#content">{{__('Skip to Content', 'simple-grey')}}</a>
+	    <a href="#navigation">{{__('Skip to Navigation', 'simple-grey')}}</a>
+	    <a href="#footer">{{__( 'Skip to Footer', 'simple-grey' )}}</a>
+	  </div>
+
+		<header id="masthead" class="site-header" role="banner">
+			{% block header %}
+		  <div class="wrap">
+		      <div class="{{brand_classes|join(' ')}}">
+						{% if simple_grey_logo %}
+		      <div class="{{logo_class}}"><a href="/" title="{{site.name}}" rel="home"><img src="<?php echo get_theme_mod( 'simple_grey_logo' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"></a></div>
+		      {% endif %}
+		      <div class="site-info">
+		        <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		        <h2 class="site-description">{{ site.description }}</h2>
+		          {{ simple_grey_site_description }}
+		      </div>
+					{% if menu %}
+		      <div id="menu-toggle" class="menu-toggle"><button aria-controls="menu" aria-expanded="false"><i class="fa fa-bars"></i>{{__( 'Menu', 'simple-grey' )}}</button></div>
+					{% endif %}
+		      </div>
+		      <!-- .site-branding -->
+		  </div>
+			{% endblock %}
+		</header>
+		<!-- #masthead -->
+
+		{% if menu %}
+		<!-- main menu -->
+    <nav id="navigation" role="navigation">
+      <div class="wrap">
+				{% include "menu.twig" with {'menu': menu.get_items, 'depth': 0, 'classes': menu_classes, 'nav_style': nav_style } %}
+			</div>
+    </nav>
+		{% endif %}
+
+		<section id="content" role="main" class="content-wrapper">
+			{% if title %}<h1>{{title}}</h1>{% endif %}
+			<div class="wrapper {{sidebar_class}}">
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</div>
+			{% if sidebar %}
+				<aside class="layout-sidebar">
+					{{sidebar}}
+				</aside>
+			{% endif %}
+		</section>
+
+		{% block footer %}
+			<footer id="footer">
+				{% include 'footer.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>

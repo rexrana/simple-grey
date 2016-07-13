@@ -1,0 +1,22 @@
+{% if menu %}
+
+  {% if (depth == 0) or ( depth > 0 and nav_style != 'flat' ) %}
+  <ul class="{{ classes|join(' ')|trim }}"{% if depth == 0 %} role="menubar" aria-expanded="false"{% endif %}>
+  {% endif %}
+
+  {% for item in menu %}
+		<li class="{{item.classes | join(' ')}}{{ item.get_children ? ' menu-item-has-children' }}"{% if item.get_children %} aria-haspopup="true" aria-expanded="false"{% endif %}>
+			<a href="{{item.get_link}}">{{item.title}}</a>
+      {% if item.get_children %}
+        {% set menu_classes = ['sub-menu'] %}
+        {% if depth > 1 %}
+          {% set menu_classes = menu_classes|merge(['menu-side']) %}
+        {% endif %}
+  			{% include "menu.twig" with {'menu': item.get_children, 'depth': depth + 1, 'classes': menu_classes, 'nav_style': nav_style } %}
+      {% endif %}
+		</li>
+	{% endfor %}
+
+  {% if (depth == 0) or ( depth > 0 and nav_style != 'flat' ) %}</ul>{% endif %}
+
+{% endif %}

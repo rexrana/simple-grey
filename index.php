@@ -8,28 +8,23 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Simple Grey
+ * Methods for TimberHelper can be found in the /lib sub-directory
+ *
+ * @package Simple Grey (Twig)
+ * @subpackage  Timber
+ * @since   Timber 0.1
  */
 
-get_header(); ?>
+if ( ! class_exists( 'Timber' ) ) {
+	echo 'Timber not activated. Make sure you activate the plugin in <a href="/wp-admin/plugins.php#timber">/wp-admin/plugins.php</a>';
+	return;
+}
+$context = Timber::get_context();
+$context['posts'] = Timber::get_posts();
 
-    <main id="main" role="main">
-      <?php if ( have_posts() ) : ?>
-        <?php /* Start the Loop */ ?>
-        <?php while ( have_posts() ) : the_post(); ?>
-        <?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-				?>
-        <?php endwhile; ?>
-        <?php simple_grey_paging_nav(); ?>
-        <?php else : ?>
-        <?php get_template_part( 'content', 'none' ); ?>
-        <?php endif; ?>
-      </main>
-      <?php get_sidebar(); ?>
+$templates = array( 'index.twig' );
 
-<?php get_footer(); ?>
+// if ( is_home() ) {
+// 	array_unshift( $templates, 'home.twig' );
+// }
+Timber::render( $templates, $context );

@@ -5,6 +5,124 @@
  * @package simple_grey
  */
 
+
+
+ if ( ! class_exists( 'Timber' ) ) {
+ 	add_action( 'admin_notices', function() {
+ 			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+ 		} );
+ 	return;
+ }
+
+ Timber::$dirname = array('templates', 'views');
+
+ class StarterSite extends TimberSite {
+
+ 	function __construct() {
+		add_action( 'after_setup_theme', array( $this, 'theme_setup' ) );
+ 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+ 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+ 		add_action( 'init', array( $this, 'register_post_types' ) );
+ 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+ 		add_action( 'wp_enqueue_scripts', array( $this, 'add_theme_scripts' ) );
+ 		parent::__construct();
+ 	}
+
+ 	function register_post_types() {
+ 		//this is where you can register custom post types
+ 	}
+
+ 	function register_taxonomies() {
+ 		//this is where you can register custom taxonomies
+ 	}
+
+ 	function add_to_context( $context ) {
+
+    // site branding
+		$brand_classes = array( 'site-branding', 'row');
+		if ( get_theme_mod( 'simple_grey_logo' ) ) :
+		    $brand_classes[] = 'with-logo';
+		endif;
+		if ( get_theme_mod( 'simple_grey_header_drop_shadow' ) ) :
+		    $brand_classes[] = 'drop-shadow';
+		endif;
+		$context['brand_classes'] = $brand_classes;
+
+		// site logo
+		$logo_image_id = get_theme_mod( 'simple_grey_logo' );
+		$context['logo'] = new TimberImage($logo_image_id);
+		$logo_classes = trim('site-logo ' . get_theme_mod( 'simple_grey_logo_style' ) );
+		$context['logo_classes'] = $logo_classes;
+
+    // primary menu
+ 		$context['menu'] = new TimberMenu('primary');
+    $menu_classes = array('nav-menu');
+    if ( get_theme_mod( 'simple_grey_nav_style' ) ) :
+		  $menu_classes[] = get_theme_mod( 'simple_grey_nav_style' );
+		endif;
+    $context['menu_classes'] = $menu_classes;
+    $context['nav_style'] = get_theme_mod( 'simple_grey_nav_style' );
+
+ 		$context['site'] = $this;
+ 		return $context;
+ 	}
+
+ 	function add_to_twig( $twig ) {
+ 		/* this is where you can add your own fuctions to twig */
+ 		$twig->addExtension( new Twig_Extension_StringLoader() );
+ 		return $twig;
+ 	}
+
+ 	function add_theme_scripts() {
+ 	  wp_enqueue_style( 'timber-starter-style', get_template_directory_uri() . '/css/app.css', array(), '1.1', 'all');
+
+ 	}
+
+	function theme_setup() {
+
+		// Make theme available for translation.
+		load_theme_textdomain( 'simple-grey', get_template_directory() . '/languages' );
+
+		// Add theme feature support.
+		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'post-formats' );
+ 		add_theme_support( 'menus' );
+		add_theme_support( 'title-tag' );
+		add_theme_support( 'post-thumbnails' );
+
+		// set thumbnail size
+	  set_post_thumbnail_size( 220, 220 );
+
+	}
+
+
+ }
+
+ new StarterSite();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
@@ -12,46 +130,6 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'simple_grey_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
-function simple_grey_setup() {
-
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on simple_grey, use a find and replace
-	 * to change 'simple-grey' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'simple-grey', get_template_directory() . '/languages' );
-
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
-
-    /*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-	 */
-	add_theme_support( 'post-thumbnails' );
-    set_post_thumbnail_size( 220, 220 );
-
-}
-endif; // simple_grey_setup
-add_action( 'after_setup_theme', 'simple_grey_setup' );
 
 /**
  * Register widget area.
