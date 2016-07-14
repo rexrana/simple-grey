@@ -17,11 +17,11 @@
 			{% block header %}
 		  <div class="wrap">
 		      <div class="{{brand_classes|join(' ')}}">
-						{% if simple_grey_logo %}
-		      <div class="{{logo_class}}"><a href="/" title="{{site.name}}" rel="home"><img src="<?php echo get_theme_mod( 'simple_grey_logo' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"></a></div>
+						{% if logo %}
+		      <div class="{{logo_classes|join(' ')}}"><a href="{{ site.link }}" title="{{site.name}}" rel="home"><img src="{{logo.src|resize(108)}}" alt="{{site.name}}"></a></div>
 		      {% endif %}
 		      <div class="site-info">
-		        <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		        <h1 class="site-title"><a href="{{ site.link }}" rel="home">{{site.name}}</a></h1>
 		        <h2 class="site-description">{{ site.description }}</h2>
 		          {{ simple_grey_site_description }}
 		      </div>

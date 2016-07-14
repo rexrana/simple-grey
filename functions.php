@@ -5,8 +5,6 @@
  * @package simple_grey
  */
 
-
-
  if ( ! class_exists( 'Timber' ) ) {
  	add_action( 'admin_notices', function() {
  			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
@@ -16,7 +14,7 @@
 
  Timber::$dirname = array('templates', 'views');
 
- class StarterSite extends TimberSite {
+ class TwigEnabledSite extends TimberSite {
 
  	function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_setup' ) );
@@ -51,7 +49,12 @@
 		// site logo
 		$logo_image_id = get_theme_mod( 'simple_grey_logo' );
 		$context['logo'] = new TimberImage($logo_image_id);
-		$logo_classes = trim('site-logo ' . get_theme_mod( 'simple_grey_logo_style' ) );
+    
+		$logo_classes = array( 'site-logo' );
+    if ( '' != get_theme_mod( 'simple_grey_logo_style' ) ) :
+      $logo_classes[] = get_theme_mod( 'simple_grey_logo_style' );
+    endif;
+
 		$context['logo_classes'] = $logo_classes;
 
     // primary menu
@@ -98,26 +101,7 @@
 
  }
 
- new StarterSite();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ new TwigEnabledSite();
 
 
 
