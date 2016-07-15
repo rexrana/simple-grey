@@ -44,25 +44,46 @@
     </nav>
 		{% endif %}
 
-		<section id="content" role="main" class="content-wrapper">
-			{% if title %}<h1>{{title}}</h1>{% endif %}
-			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
-					Sorry, no content
-				{% endblock %}
-			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
-		</section>
 
-		{% block footer %}
-			<footer id="footer">
-				{% include 'footer.twig' %}
-			</footer>
-			{{ function('wp_footer') }}
-		{% endblock %}
-	</body>
+<div id="content">
+  <div class="wrap">
+    <div class="row"></div>
+  </div>
+</div>
+
+<footer id="footer" class="site-footer" role="contentinfo">
+	{% block footer %}
+  <div class="wrap">
+    <div class="row">
+			{% if footer_text_top %}
+      <div class="footer-text">{{footer_text_top}}</div>
+      {% endif %}
+
+      {% if sidebar_footer %}
+			<aside class="widget-area">
+			{{sidebar_footer}}
+			</aside>
+      {% endif %}
+
+			{% if footer_text_bottom or footer_credits %}
+      <div class="footer-text">
+				{% if footer_text_bottom %}
+	      <p>{{footer_text_bottom}}</p>
+	      {% endif %}
+
+				{% if footer_credits %}
+        <p>
+          <i class="mv mv-wordpress icon-large"></i> {{__( 'Proudly powered by <a href="%1$s" rel="generator">%2$s</a>. Theme: <a href="%3$s">%4$s</a> by <a href="%5$s" rel="designer">%6$s</a>.', 'simple-grey' )|format('http://wordpress.org/', 'WordPress', 'https://github.com/peterhebert/simple-grey-twig', __( 'Simple Grey', 'simple-grey' ), __( 'http://peterhebert.com/', 'simple-grey' ), __( 'Peter Hebert', 'simple-grey' ))}}
+				</p>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+	{% endblock %}
+</footer>
+<!-- #footer -->
+
+{{ function('wp_footer') }}
+</body>
 </html>

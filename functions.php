@@ -49,7 +49,7 @@
 		// site logo
 		$logo_image_id = get_theme_mod( 'simple_grey_logo' );
 		$context['logo'] = new TimberImage($logo_image_id);
-    
+
 		$logo_classes = array( 'site-logo' );
     if ( '' != get_theme_mod( 'simple_grey_logo_style' ) ) :
       $logo_classes[] = get_theme_mod( 'simple_grey_logo_style' );
@@ -65,6 +65,19 @@
 		endif;
     $context['menu_classes'] = $menu_classes;
     $context['nav_style'] = get_theme_mod( 'simple_grey_nav_style' );
+
+    // footer
+    if ( get_theme_mod( 'simple_grey_footer_text_top' ) ){
+      $context['footer_text_top'] = get_theme_mod( 'simple_grey_footer_text_top' );
+    }
+    if ( get_theme_mod( 'simple_grey_footer_text_bottom' ) ){
+      $context['footer_text_bottom'] = get_theme_mod( 'simple_grey_footer_text_bottom' );
+    }
+    if ( get_theme_mod( 'simple_grey_show_footer_credits' ) ){
+      $context['footer_credits'] = true;
+    }
+    $context['sidebar_footer'] = Timber::get_widgets('sidebar-footer');
+
 
  		$context['site'] = $this;
  		return $context;
@@ -95,6 +108,40 @@
 
 		// set thumbnail size
 	  set_post_thumbnail_size( 220, 220 );
+
+    // Add theme support for Custom Header
+  	$header_args = array(
+  		'header-text'            => false,
+  		'default-text-color'     => '',
+  		'default-image'          => '',
+  		'width'                  => 1000,
+  		'height'                 => 250,
+  		'flex-height'            => true,
+  		'wp-head-callback'       => 'simple_grey_header_style',
+  		'admin-head-callback'    => 'simple_grey_admin_header_style',
+  	);
+  	add_theme_support( 'custom-header', $header_args );
+
+	/*
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
+	add_theme_support( 'html5', array(
+		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
+	) );
+
+	/*
+	 * Enable support for Post Formats.
+	 * See http://codex.wordpress.org/Post_Formats
+	 */
+	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio' ) );
+
+	/*
+	 * Remove support for unused theme features.
+	 * See https://codex.wordpress.org/Theme_Features
+	 * See https://codex.wordpress.org/Function_Reference/remove_theme_support
+	 */
+	 remove_theme_support( 'custom-background' );
 
 	}
 
