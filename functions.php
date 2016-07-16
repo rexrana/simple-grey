@@ -23,6 +23,8 @@
  		add_action( 'init', array( $this, 'register_post_types' ) );
  		add_action( 'init', array( $this, 'register_taxonomies' ) );
  		add_action( 'wp_enqueue_scripts', array( $this, 'add_theme_scripts' ) );
+    add_action( 'widgets_init', array( $this, 'define_sidebars' ) );
+
  		parent::__construct();
  	}
 
@@ -90,7 +92,32 @@
  	}
 
  	function add_theme_scripts() {
- 	  wp_enqueue_style( 'timber-starter-style', get_template_directory_uri() . '/css/app.css', array(), '1.1', 'all');
+    // load fonts
+  	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic', false );
+  	wp_enqueue_style( 'dashicons' );
+
+    // load theme stylesheets
+  	if ( is_rtl() )
+  	{
+  		wp_enqueue_style( 'simple-grey-style-rtl', get_template_directory_uri() . '/css/simple-grey-rtl.css' );
+  	}
+  	else {
+  		wp_enqueue_style( 'simple-grey-style', get_template_directory_uri() . '/css/simple-grey.css' );
+  	}
+
+  	wp_enqueue_script( 'simple-grey-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20140817', true );
+
+  	wp_enqueue_script( 'simple-grey-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+  	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+  		wp_enqueue_script( 'comment-reply' );
+  	}
+
+  	// fix issues with oEmbeds
+    wp_enqueue_script ( 'simple-grey-oembed-adjust', get_template_directory_uri() . '/js/oembed-adjust.js', array( 'jquery' ), null, true );
+
+  	// accessibility features
+    wp_enqueue_script ( 'accessibility', get_template_directory_uri() . '/js/accessibility.js', array( 'jquery' ), null, true );
 
  	}
 
@@ -145,8 +172,40 @@
 
 	}
 
+  function define_sidebars() {
 
- }
+      register_sidebar( array(
+  		'name'          => __( 'Secondary', 'simple-grey' ),
+  		'id'            => 'sidebar-secondary',
+  		'description'   => '',
+  		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+  		'after_widget'  => '</aside>',
+  		'before_title'  => '<h1 class="widget-title">',
+  		'after_title'   => '</h1>',
+  	) );
+
+  	register_sidebar( array(
+  		'name'          => __( 'Featured', 'simple-grey' ),
+  		'id'            => 'sidebar-featured',
+  		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+  		'after_widget'  => '</aside>',
+  		'before_title'  => '<h1 class="widget-title">',
+  		'after_title'   => '</h1>',
+  	) );
+
+  	register_sidebar( array(
+  		'name'          => __( 'Footer', 'simple-grey' ),
+  		'id'            => 'sidebar-footer',
+  		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+  		'after_widget'  => '</div>',
+  		'before_title'  => '<h1 class="widget-title">',
+  		'after_title'   => '</h1>',
+  	) );
+
+  }
+
+
+ } // end class TwigEnabledSite
 
  new TwigEnabledSite();
 
@@ -161,79 +220,6 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-
-/**
- * Register widget area.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
- */
-function simple_grey_widgets_init() {
-
-    register_sidebar( array(
-		'name'          => __( 'Secondary', 'simple-grey' ),
-		'id'            => 'sidebar-secondary',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Featured', 'simple-grey' ),
-		'id'            => 'sidebar-featured',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Footer', 'simple-grey' ),
-		'id'            => 'sidebar-footer',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-
-}
-add_action( 'widgets_init', 'simple_grey_widgets_init' );
-
-/**
- * Enqueue scripts and styles.
- */
-function simple_grey_scripts() {
-
-	// load fonts
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic', false );
-	wp_enqueue_style( 'dashicons' );
-
-  // load theme stylesheets
-	if ( is_rtl() )
-	{
-		wp_enqueue_style( 'simple-grey-style-rtl', get_template_directory_uri() . '/css/simple-grey-rtl.css' );
-	}
-	else {
-		wp_enqueue_style( 'simple-grey-style', get_template_directory_uri() . '/css/simple-grey.css' );
-	}
-
-	wp_enqueue_script( 'simple-grey-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20140817', true );
-
-	wp_enqueue_script( 'simple-grey-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-
-	// fix issues with oEmbeds
-  wp_enqueue_script ( 'simple-grey-oembed-adjust', get_template_directory_uri() . '/js/oembed-adjust.js', array( 'jquery' ), null, true );
-
-	// accessibility features
-  wp_enqueue_script ( 'accessibility', get_template_directory_uri() . '/js/accessibility.js', array( 'jquery' ), null, true );
-
-}
-add_action( 'wp_enqueue_scripts', 'simple_grey_scripts' );
 
 /**
 * Apply theme's stylesheet to the visual editor.
