@@ -14,6 +14,20 @@
 
  Timber::$dirname = array('templates', 'views');
 
+ /**
+  * Extend Timber's user object.
+  */
+
+ class SimpleGreyUser extends TimberUser {
+   public function can( $capability ) {
+     if ( $this->ID ) {
+       return user_can( $this->ID, $capability );
+     }
+     return false;
+  }
+ }
+
+
  class TwigEnabledSite extends TimberSite {
 
  	function __construct() {
@@ -37,6 +51,10 @@
  	}
 
  	function add_to_context( $context ) {
+
+    // current user id
+    $uid = get_current_user_id();
+    $context['current_user'] = new SimpleGreyUser($uid);
 
     // site branding
 		$brand_classes = array( 'site-branding', 'row');
@@ -78,6 +96,10 @@
     if ( get_theme_mod( 'simple_grey_show_footer_credits' ) ){
       $context['footer_credits'] = true;
     }
+
+    // sidebars (widget areas)
+    $context['sidebar_secondary'] = Timber::get_widgets('sidebar-secondary');
+    $context['sidebar_featured'] = Timber::get_widgets('sidebar-featured');
     $context['sidebar_footer'] = Timber::get_widgets('sidebar-footer');
 
 
@@ -208,9 +230,6 @@
  } // end class TwigEnabledSite
 
  new TwigEnabledSite();
-
-
-
 
 
 /**

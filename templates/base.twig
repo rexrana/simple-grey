@@ -66,11 +66,13 @@
 					{% include ['content-none.twig'] %}
         {% endblock %}
       </main>
-      {% if sidebar %}
-        <aside class="layout-sidebar">
-          {{sidebar}}
-        </aside>
+      {% block sidebar %}
+      {% if sidebar_secondary %}
+      <aside id="secondary" class="widget-area" role="complementary">
+      	<div class="sidebar-row">{{sidebar_secondary}}</div>
+      </aside><!-- #secondary -->
       {% endif %}
+      {% endblock %}
     </div>
   </div>
 </section>
