@@ -1,28 +1,21 @@
 <?php
 /**
- * The template for displaying all single posts.
+ * The Template for displaying all single posts
+ *
+ * Methods for TimberHelper can be found in the /lib sub-directory
  *
  * @package Simple Grey
+ * @subpackage  Timber
+ * @since    Timber 0.1
  */
 
-get_header(); ?>
+$context = Timber::get_context();
+$post = Timber::query_post();
+$context['post'] = $post;
+$context['comment_form'] = TimberHelper::get_comment_form();
 
-    <main id="main" role="main">
-		<?php while ( have_posts() ) : the_post(); ?>
-
-			<?php get_template_part( 'content', 'single' ); ?>
-      <?php simple_grey_post_nav(); ?>
-
-			<?php
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-			?>
-
-		<?php endwhile; // end of the loop. ?>
-
-		</main><!-- #main -->
-      <?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
+if ( post_password_required( $post->ID ) ) {
+	Timber::render( 'single-password.twig', $context );
+} else {
+	Timber::render( array( 'single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig' ), $context );
+}
