@@ -67,9 +67,9 @@
         {% endblock %}
       </main>
       {% block sidebar %}
-      {% if sidebar_secondary %}
-      <aside id="secondary" class="widget-area" role="complementary">
-      	<div class="sidebar-row">{{sidebar_secondary}}</div>
+      {% if sidebar %}
+      <aside id="{{sidebar_id}}" class="widget-area" role="complementary">
+      	<div class="sidebar-row">{{sidebar}}</div>
       </aside><!-- #secondary -->
       {% endif %}
       {% endblock %}

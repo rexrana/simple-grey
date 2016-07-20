@@ -1,5 +1,10 @@
 {% extends "base.twig" %}
 
 {% block content %}
+	{% if float_thumb_dir %}
+		{% include "content-page-float-thumb.twig" %}
+	{% else %}
 		{% include ['content-page.twig'] %}
+	{% endif %}
+
 {% endblock %}

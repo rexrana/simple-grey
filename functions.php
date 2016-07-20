@@ -98,8 +98,8 @@
     }
 
     // sidebars (widget areas)
-    $context['sidebar_secondary'] = Timber::get_widgets('sidebar-secondary');
-    $context['sidebar_featured'] = Timber::get_widgets('sidebar-featured');
+    $context['sidebar'] = Timber::get_widgets('sidebar-secondary');
+    $context['sidebar_id'] = 'secondary';
     $context['sidebar_footer'] = Timber::get_widgets('sidebar-footer');
 
 
@@ -238,7 +238,6 @@
 if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
-
 
 /**
 * Apply theme's stylesheet to the visual editor.

@@ -1,8 +1,7 @@
 <?php
 /*
- * Template Name: Feature Page
- * Description: A Page Template with a featured sidebar, which can be used for
- * a front page or a splash page
+ * Template Name: Thumbnail floated left
+ * Description: A Page Template with the post Thumbnail floated left
  *
  * @package Simple Grey
  * @subpackage  Timber
@@ -12,7 +11,5 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
-$context['sidebar'] = Timber::get_widgets('sidebar-featured');
-$context['sidebar_id'] = 'featured';
-
+$context['float_thumb_dir'] = 'left';
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

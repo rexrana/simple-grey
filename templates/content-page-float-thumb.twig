@@ -1,0 +1,7 @@
+{% extends "content-page.twig" %}
+
+{% block featured_image %}
+<div class="post-thumbnail image-{{float_thumb_dir}}">
+  <a href="{{ post.link }}" rel="bookmark"><img src="{{post.thumbnail.src|resize('medium')}}" alt="{{ __( 'Image for %s', 'simple-grey')|format(post.title) }}" /></a>
+</div><!-- .post-thumbnail -->
+{% endblock %}

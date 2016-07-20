@@ -32,6 +32,7 @@
     {{ __( 'Posted on %1$s by %2$s', 'simple-grey' )|format( time_posted, author_posted ) }}
     {% if post.terms %}
       <span class="post-taxonomy">
+
         {% if post.terms('category') %} in
         {% for term in post.terms('category') %}
           <a href="{{term.link}}" rel="tag">{{term.name}}</a>{% if not loop.last %}, {% endif %}
@@ -39,7 +40,7 @@
         {% endif %}
         {% if post.terms('category') and post.terms('tags') %} and {% endif %}
         {% if post.terms('tags') %} tagged {% endif %}
-        {% for term in post.terms('tags') %}
+				{% for term in post.terms('tags') %}
           <a href="{{term.link}}" rel="tag">{{term.name}}</a>{% if not loop.last %}, {% endif %}
         {% endfor %}
       </span>

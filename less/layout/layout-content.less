@@ -17,6 +17,18 @@ body {
 }
 
 #featured {
+  .widget
+   {
+    .even-columns(4, "-widgets");
+  }
+  /* class of widget-* will result in full width widget
+  *  this is added automatically with 'Widget CSS Classes' plugin:
+  *  https://wordpress.org/plugins/widget-css-classes/
+  */
+  .widget[class^="widget-"],
+  .widget.full-width {
+    .column();
+  }
   .featured {
     article {
       .even-columns(4, "-widgets");
@@ -36,9 +48,12 @@ body {
       }
     }
   }
-  .widget.columns {
+  /* add 'columns' class to widget to restore responsive column display */
+  .widget.columns
+   {
     .even-columns(4, "-widgets");
   }
+
 }
 
 @media only screen and (min-width: @bp-widgets-2col) {
@@ -49,7 +64,7 @@ body {
     }
   }
   #featured .featured .widget-title {
-    .column();
+    // .column();
   }
 }
 
