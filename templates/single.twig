@@ -2,9 +2,6 @@
 
 {% block content %}
 		{% include ['content-single.twig'] %}
-    {{ function("simple_grey_post_nav") }}
-    {# If comments are open or we have at least one comment, load up the comment template #}
-    {% if function("comments_open") or function("get_comments_number") %}
-    {{ function("comments_template") }}
-    {% endif %}
+		{% include ['partials/post-nav.twig'] %}
+		{% include ['comments.twig'] %}
 {% endblock %}

@@ -1,0 +1,14 @@
+<nav class="navigation post-navigation" role="navigation">
+  <h1 class="screen-reader-text">{{__('Post navigation', 'simple-grey')}}</h1>
+  <div class="nav-links">
+    <div class="nav-previous">
+      <a href="{{post.prev.link|e('esc_url')}}" rel="prev">
+        <span class="meta-nav">&larr;</span>{{post.prev.title}}</a>
+    </div>
+    <div class="nav-next">
+      <a href="{{post.next.link|e('esc_url')}}" rel="next">{{post.next.title}}<span class="meta-nav">&rarr;</span>
+      </a>
+    </div>
+  </div>
+  <!-- .nav-links -->
+</nav>
