@@ -68,5 +68,6 @@ if ( is_tag() ||  is_category() || is_tax() ) {
 }
 
 $data['posts'] = Timber::get_posts();
+$context['pagination'] = Timber::get_pagination();
 
 Timber::render( $templates, $data );

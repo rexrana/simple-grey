@@ -1,0 +1,26 @@
+{% if pagination.prev or pagination.next %}
+{% if pagination_style == 'older-newer' %}
+  {% set prev_title = __( 'Older posts', 'simple-grey') %}
+  {% set next_title = __( 'Newer posts', 'simple-grey') %}
+{% else %}
+  {% set prev_title = __( 'Previous posts', 'simple-grey') %}
+  {% set next_title = __( 'Next posts', 'simple-grey') %}
+{% endif %}
+<nav id="paging-navigation" class="navigation paging-navigation" role="navigation">
+  <h1 class="screen-reader-text">{{__('Post navigation', 'simple-grey')}}</h1>
+  <div class="nav-links">
+  {% if pagination.prev %}
+    <div class="nav-previous">
+      <a href="{{pagination.prev.link}}" rel="prev">
+        <span class="meta-nav">&larr;</span> {{ prev_title }}</a>
+    </div>
+  {% endif %}
+  {% if pagination.next %}
+    <div class="nav-next">
+      <a href="{{pagination.next.link}}" rel="next">{{ next_title }} <span class="meta-nav">&rarr;</span>
+      </a>
+    </div>
+  {% endif %}
+  </div><!-- .nav-links -->
+</nav><!-- .navigation -->
+{% endif %}

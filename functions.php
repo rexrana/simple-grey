@@ -86,6 +86,9 @@
     $context['menu_classes'] = $menu_classes;
     $context['nav_style'] = get_theme_mod( 'simple_grey_nav_style' );
 
+    // posts pages pagination
+    $context['pagination_style'] = get_theme_mod( 'simple_grey_pagination_style' );
+
     // footer
     if ( get_theme_mod( 'simple_grey_footer_text_top' ) ){
       $context['footer_text_top'] = get_theme_mod( 'simple_grey_footer_text_top' );
