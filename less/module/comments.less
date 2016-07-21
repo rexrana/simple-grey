@@ -1,23 +1,58 @@
 /* =Comments
 ----------------------------------------------- */
 
-.comment-content a {
-	word-wrap: break-word;
-}
 .comments-area {
-  .comments-title { 
-    .baseline-size( 1.5 ); 
-    &:before { font-family: 'FontAwesome'; content: "\f086"; margin-right: .25em; } 
+  .comments-title {
+    .baseline-size( 1.5 );
+    &:before {
+      font-family: 'FontAwesome';
+      content: "\f086";
+      margin-right: 0.25em;
+    }
   }
-  .comment-reply-title { 
+  .comment-reply-title {
     .baseline-size( 1.25 );
-    &:before { font-family: 'FontAwesome'; content: "\f112"; margin-right: .5em; } 
+    &:before {
+      font-family: 'FontAwesome';
+      content: "\f112";
+      margin-right: 0.5em;
+    }
   }
-  ol {
-      list-style-type: none; 
-      li { 
-          .mg-both(.75);
-      }
-   }
- 
+	.comment-meta {
+		line-height: 2;
+		.mg-bottom(.5);
+	}
+  .avatar {
+    vertical-align: middle;
+  }
+
+	.comment-content {
+		p {
+			.baseline-size( 1, .75 );
+		}
+		a {
+		  word-wrap: break-word;
+		}
+	}
+
+  ol.comment-list, ol.children {
+    list-style-type: none;
+    li {
+      .mg-both(.75);
+    }
+  }
+  .comment-links {
+    .baseline-size( 0.875 );
+  }
+  .edit-link:before {
+    font-family: 'dashicons';
+    content: "\f327";
+    margin: 0 0.25em;
+  }
+  //.edit-link:before
+  .reply-link:before {
+    font-family: 'FontAwesome';
+    content: "\f112";
+    margin: 0 0.25em 0 0.5em;
+  }
 }

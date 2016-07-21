@@ -1344,9 +1344,6 @@ input[type="submit"]:focus {
 }
 /* =Comments
 ----------------------------------------------- */
-.comment-content a {
-  word-wrap: break-word;
-}
 .comments-area .comments-title {
   font-size: 1.5em;
   line-height: 1em;
@@ -1355,7 +1352,7 @@ input[type="submit"]:focus {
 .comments-area .comments-title:before {
   font-family: 'FontAwesome';
   content: "\f086";
-  margin-right: .25em;
+  margin-right: 0.25em;
 }
 .comments-area .comment-reply-title {
   font-size: 1.25em;
@@ -1365,14 +1362,46 @@ input[type="submit"]:focus {
 .comments-area .comment-reply-title:before {
   font-family: 'FontAwesome';
   content: "\f112";
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
-.comments-area ol {
+.comments-area .comment-meta {
+  line-height: 2;
+  margin-bottom: 0.75em;
+}
+.comments-area .avatar {
+  vertical-align: middle;
+}
+.comments-area .comment-content p {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0 0 0.75em;
+}
+.comments-area .comment-content a {
+  word-wrap: break-word;
+}
+.comments-area ol.comment-list,
+.comments-area ol.children {
   list-style-type: none;
 }
-.comments-area ol li {
+.comments-area ol.comment-list li,
+.comments-area ol.children li {
   margin-top: 1.125em;
   margin-bottom: 1.5em;
+}
+.comments-area .comment-links {
+  font-size: 0.875em;
+  line-height: 1.71428571em;
+  margin: 0 0 1.71428571em;
+}
+.comments-area .edit-link:before {
+  font-family: 'dashicons';
+  content: "\f327";
+  margin: 0 0.25em;
+}
+.comments-area .reply-link:before {
+  font-family: 'FontAwesome';
+  content: "\f112";
+  margin: 0 0.25em 0 0.5em;
 }
 .pagination {
   display: inline-block;

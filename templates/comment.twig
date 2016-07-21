@@ -1,0 +1,43 @@
+
+<li id="comment-{{comment.ID}}" class="comment byuser comment-author-{{comment.author.slug}} even thread-even depth-{{depth}}">
+  <article id="div-comment-{{comment.ID}}" class="comment-body">
+    <footer class="comment-meta">
+      <span class="comment-author vcard">
+        {% set avatar_size = 32 %}
+        <img alt="{{__('Avatar for %s', 'simple-grey')|format(comment.author.name)}}"
+        src="{{ comment.avatar(avatar_size) }}"
+        srcset="{{ comment.avatar(avatar_size * 2) }} 2x"
+      class="avatar avatar-{{avatar_size}} photo" height="{{avatar_size}}" width="{{avatar_size}}">
+
+        <b class="fn">{{ comment.author.name }}</b>
+      </span><!-- .comment-author -->
+
+      <span class="comment-datetime">
+          {{__('on', 'simple-grey')}}
+          <time datetime="{{ comment.date|date('c') }}">{{ __('%1$s at %2$s', 'simple-grey')|format(comment.date, comment.time) }}</time>
+      </span><!-- .comment-metadata -->
+
+    </footer><!-- .comment-meta -->
+
+    <div class="comment-content">{{comment.comment_content|wpautop}}</div>
+    {% if current_user.can("edit_posts") or post.comment_status == 'open' %}
+    <div class="comment-links">
+          {% if current_user.can("edit_posts") %}
+            {% set edit_comment_link = function( 'get_edit_comment_link', comment.id ) %}
+            <span class="edit-link"><a class="comment-edit-link" href="{{edit_comment_link}}">{{__('Edit', 'simple-grey')}}</a></span>
+          {% endif %}
+          {% if post.comment_status == 'open' %}
+              <span class="reply-link">{{comment.reply_link(__('Reply', 'simple-grey'))}}</span>
+          {% endif %}
+    </div>
+    {% endif %}
+
+  </article><!-- .comment-body -->
+    {% if comment.children %}
+    <ol class="children">
+    {% for cmt in comment.children %}
+      {% include 'comment.twig' with { 'comment': cmt, 'depth': depth + 1 } %}
+    {% endfor %}
+    </ol>
+  {% endif %}
+</li><!-- #comment-## -->
