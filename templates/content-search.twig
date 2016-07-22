@@ -1,0 +1,34 @@
+<!-- content-search.twig -->
+<article id="post-{{post.ID}}" class="{{post.class}} clearfix">
+
+  {% if post.thumbnail.src %}
+		{% block featured_image %}
+    <div class="post-thumbnail image-left">
+      <a href="{{ post.link }}" rel="bookmark"><img src="{{post.thumbnail.src|resize('thumbnail')}}" alt="{{ __( 'Image for %s', 'simple-grey')|format(post.title) }}" /></a>
+    </div><!-- .post-thumbnail -->
+		{% endblock %}
+	{% endif %}
+
+  <header class="entry-header">
+    {% block entry_header %}
+		<h3 class="entry-title"><a href="{{ post.link }}" rel="bookmark">{{ post.title }}</a></h3>
+    {% endblock %}
+	</header><!-- .entry-header -->
+
+  {% block entry_meta %}
+    {% set time_posted = __( '<time class="entry-date published" datetime="%1$s">%2$s</time>', 'simple-grey')|format(post.post_date|date("c"), post.post_date|date) %}
+    {% set author_posted = __( '<a class="author vcard" href="%1$s">%2$s</a>', 'simple-grey')|format( post.author.link, post.author.name ) %}
+  <footer class="entry-meta">
+    <span class="posted-on">
+    {{ __( 'Posted on %1$s by %2$s', 'simple-grey' )|format( time_posted, author_posted ) }}
+    </span>
+  </footer><!-- .entry-meta -->
+  {% endblock %}
+
+  {% block content %}
+  	<div class="entry-summary">
+  		<p>{{post.get_preview(30)}}</p>
+  	</div><!-- .entry-content -->
+  {% endblock %}
+
+</article><!-- #post-## -->
