@@ -1,0 +1,30 @@
+<article id="page-{{post.ID}}" {{ function( 'post_class' ) }}>
+
+	{% block featured_image %}
+	{% if post.thumbnail.src %}
+	<div class="post-thumbnail{% if post_thumb_classes %} {{post_thumb_classes}}{% endif %}">
+		<a href="{{ post.link }}" rel="bookmark"><img src="{{post.thumbnail.src|resize(post_thumb_size)}}" alt="{{ __( 'Image for %s', 'simple-grey')|format(post.title) }}" /></a>
+	</div><!-- .post-thumbnail -->
+	{% endif %}
+	{% endblock %}
+
+	{% block entry_header %}
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="{{ post.link }}" rel="bookmark">{{ post.title }}</a></h2>
+	</header><!-- .entry-header -->
+	{% endblock %}
+
+  {% block content %}
+	<div class="entry-content">
+		{{ post.content }}
+	</div>
+  {% endblock %}
+
+  {% block entry_footer %}
+	<footer class="entry-footer">
+    <p class="entry-meta">{% include "partials/post-edit.twig" %}</p>
+  </footer>
+  <!-- .entry-meta -->
+  {% endblock %}
+
+</article><!-- #post-## -->

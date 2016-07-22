@@ -1,0 +1,3 @@
+{% if post.post_modified != post.post_date  %}
+<span class="post-updated">{{ __( 'Last updated on %1$s by %2$s.', 'simple-grey' )|format( time_modified, author_modified ) }}</span>
+{% endif %}

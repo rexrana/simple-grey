@@ -12,5 +12,7 @@
 $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
-$context['search_query'] = get_search_query();
+$context['title'] = sprintf( __( 'Search Results for: %s', 'simple-grey' ), get_search_query() );
+$context['post_thumb_classes'] = 'image-left';
+
 Timber::render( array( 'search.twig' ), $context );

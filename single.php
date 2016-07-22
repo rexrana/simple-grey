@@ -13,6 +13,7 @@ $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
 $context['comment_form'] = TimberHelper::get_comment_form();
+$context['post_thumb_size'] = 'large';
 
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );

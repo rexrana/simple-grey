@@ -105,6 +105,8 @@
     $context['sidebar_id'] = 'secondary';
     $context['sidebar_footer'] = Timber::get_widgets('sidebar-footer');
 
+    // post thumbnails - default size
+    $context['post_thumb_size'] = 'thumbnail';
 
  		$context['site'] = $this;
  		return $context;

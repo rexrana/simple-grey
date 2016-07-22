@@ -11,5 +11,6 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
-$context['float_thumb_dir'] = 'left';
+$context['post_thumb_size'] = 'medium';
+$context['post_thumb_classes'] = 'image-left';
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

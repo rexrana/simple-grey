@@ -2,36 +2,32 @@ body {
   color: @col-footer-text;
   background-color: @col-footer-bg;
 }
-
 #content {
   color: @col-txt;
   background-color: @col-bg;
   &:extend(.clearfix all);
   padding: 1.5em 0;
 }
-
+#featured,
 #main,
-#secondary,
-#featured {
+#secondary {
   .column();
 }
-
 #featured {
-  .widget
-   {
-    .even-columns(4, "-widgets");
+  .widget {
+    .even-columns(4,  "-widgets");
   }
   /* class of widget-* will result in full width widget
   *  this is added automatically with 'Widget CSS Classes' plugin:
   *  https://wordpress.org/plugins/widget-css-classes/
   */
-  .widget[class^="widget-"],
-  .widget.full-width {
+  .widget.full-width,
+  .widget[class^="widget-"] {
     .column();
   }
   .featured {
     article {
-      .even-columns(4, "-widgets");
+      .even-columns(4,  "-widgets");
       .article-title {
         margin-bottom: 0;
       }
@@ -39,26 +35,22 @@ body {
   }
   .cards {
     &:extend(.clearfix all);
-    margin: 0 (@basepx * -1px);
     margin: 0 (@margin * -1);
     article {
-      .even-columns(4, "-widgets");
+      .even-columns(4,  "-widgets");
       .article-title {
         margin-bottom: 0;
       }
     }
   }
   /* add 'columns' class to widget to restore responsive column display */
-  .widget.columns
-   {
-    .even-columns(4, "-widgets");
+  .widget.columns {
+    .even-columns(4,  "-widgets");
   }
-
 }
-
 @media only screen and (min-width: @bp-widgets-2col) {
-  #secondary,
-  #featured {
+  #featured,
+  #secondary {
     .sidebar-row {
       .row;
     }
@@ -67,32 +59,55 @@ body {
     // .column();
   }
 }
-
 @media only screen and (max-width: @bp-float-sidebar) {
   #secondary {
     .mg-top();
   }
 }
-
 #main {
   article {
+    .clearfix;
+    .mg-bottom();
     h1 {
-      .baseline-size( 2);
+      .baseline-size( 2 );
     }
     h2 {
-      .baseline-size( 1.75);
+      .baseline-size( 1.75 );
     }
     h3 {
-      .baseline-size( 1.5);
+      .baseline-size( 1.5 );
     }
     h4 {
-      .baseline-size( 1.25);
+      .baseline-size( 1.25 );
     }
     h5 {
-      .baseline-size( 1.125);
+      .baseline-size( 1.125 );
     }
-    h6 {
-      .baseline-size( 1);
+    h6,
+    p {
+      .baseline-size( 1 );
+    }
+    &.post-teaser {
+      .clearfix;
+      h1 {
+        .baseline-size( 2, 1);
+      }
+      h2 {
+        .baseline-size( 1.75, 1);
+      }
+      h3 {
+        .baseline-size( 1.5, 1);
+      }
+      h4 {
+        .baseline-size( 1.25, 1);
+      }
+      h5 {
+        .baseline-size( 1.125, 1);
+      }
+      h6,
+      p {
+        .baseline-size( 1, 1);
+      }
     }
     .post-meta {
       list-style: none;
@@ -102,7 +117,7 @@ body {
       word-wrap: break-word;
     }
     .entry-meta {
-      .baseline-size(0.875);
+      .baseline-size(0.875, 0.75);
       .edit-link:before {
         font-family: 'dashicons';
         content: "\f327";
@@ -112,7 +127,7 @@ body {
       .comments-link:before {
         font-family: 'FontAwesome';
         content: "\f0e5";
-        margin: 0 .75em;
+        margin: 0 0.75em;
       }
       // .comments-link:before
     }
@@ -120,26 +135,19 @@ body {
       margin-bottom: 1.5em;
     }
     // .post-thumbnail
-    .entry-footer {
-      .cat-links, .tags-links {
-        margin-right: .75em;
-      }
-    }
-    .mg-bottom();
+    .entry-footer {}
   }
   // article
 }
-
 #secondary {
   .widget {
-    .even-columns(3, "-widgets");
+    .even-columns(3,  "-widgets");
   }
 }
-
 // move sidebar to second column
 @media only screen and (min-width: @bp-float-sidebar) {
-  .blog,
   .archive,
+  .blog,
   .single {
     #main {
       .column(@ga);
@@ -153,9 +161,9 @@ body {
     }
   }
 }
-
 .page {
-  .wrap, #site-navigation .menu-wrap {
+  #site-navigation .menu-wrap,
+  .wrap {
     max-width: @bp-05;
   }
   #secondary {

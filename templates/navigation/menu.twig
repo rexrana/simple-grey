@@ -12,7 +12,7 @@
         {% if depth > 1 %}
           {% set menu_classes = menu_classes|merge(['menu-side']) %}
         {% endif %}
-  			{% include "menu.twig" with {'menu': item.get_children, 'depth': depth + 1, 'classes': menu_classes, 'nav_style': nav_style } %}
+  			{% include "navigation/menu.twig" with {'menu': item.get_children, 'depth': depth + 1, 'classes': menu_classes, 'nav_style': nav_style } %}
       {% endif %}
 		</li>
 	{% endfor %}

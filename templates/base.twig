@@ -1,6 +1,6 @@
 {% block html_head_container %}
 
-  {% include 'html-header.twig' %}
+  {% include 'partials/html-header.twig' %}
   {% block head %}{% endblock %}
 </head>
 {% endblock %}
@@ -45,7 +45,7 @@
   <!-- main menu -->
   <nav id="navigation" role="navigation">
     <div class="wrap">
-      {% include "menu.twig" with {'menu': menu.get_items, 'depth': 0, 'classes': menu_classes, 'nav_style': nav_style} %}
+      {% include "navigation/menu.twig" with {'menu': menu.get_items, 'depth': 0, 'classes': menu_classes, 'nav_style': nav_style} %}
     </div>
   </nav>
 {% endif %}
@@ -53,17 +53,17 @@
 <section id="content" role="main">
   <div class="wrap {{sidebar_class}}">
     <div class="row">
-      {% block page_header %}
-        {% if title %}
-        <header class="page-header col">
-          <h1 class="page-title">{{title}}</h1>
-        </header><!-- .page-header -->
-        {% endif %}
-      {% endblock %}
-
       <main id="main" role="main">
+        {% block page_header %}
+          {% if title %}
+          <header class="page-header">
+            <h1 class="page-title">{{title}}</h1>
+          </header><!-- .page-header -->
+          {% endif %}
+        {% endblock %}
+
         {% block content %}
-					{% include ['content-none.twig'] %}
+					{% include ['content/none.twig'] %}
         {% endblock %}
       </main>
       {% block sidebar %}

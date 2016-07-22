@@ -1,0 +1,8 @@
+{% if post.terms('tags') %}
+	<span class="post-taxonomy post-tags">
+		{{ __( 'Tags: ', 'simple-grey' ) }}
+		{% for term in post.terms('tags') %}
+			<a href="{{term.link}}" rel="tag">{{term.name}}</a>{% if not loop.last %}, {% endif %}
+		{% endfor %}
+	</span>
+{% endif %}

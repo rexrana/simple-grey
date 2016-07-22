@@ -1,0 +1,37 @@
+{% set time_posted = __( '<time class="entry-date published" datetime="%1$s">%2$s</time>', 'simple-grey')|format(post.post_date|date("c"), post.post_date|date) %}
+{% set time_modified = __( '<time class="updated" datetime="%1$s">%2$s</time>', 'simple-grey')|format(post.post_modified|date("c"), post.post_modified|date) %}
+{% set author_posted = __( '<a class="author vcard" href="%1$s">%2$s</a>', 'simple-grey')|format( post.author.link, post.author.name ) %}
+{% set author_modified = __( '<a class="author vcard" href="%1$s">%2$s</a>', 'simple-grey')|format( post.modified_author.link, post.modified_author.name ) %}
+
+<article id="post-{{post.ID}}" {{function('post_class', post_classes)}}>
+
+		{% block featured_image %}
+    {% if post.thumbnail.src %}
+    <div class="post-thumbnail{% if post_thumb_classes %} {{post_thumb_classes}}{% endif %}">
+      <a href="{{ post.link }}" rel="bookmark"><img src="{{post.thumbnail.src|resize(post_thumb_size)}}" alt="{{ __( 'Image for %s', 'simple-grey')|format(post.title) }}" /></a>
+    </div><!-- .post-thumbnail -->
+    {% endif %}
+		{% endblock %}
+
+	{% block entry_header %}
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="{{ post.link }}" rel="bookmark">{{ post.title }}</a></h2>
+    <div class="entry-meta">
+      {% include "partials/posted-on.twig" %}
+      {% include "partials/post-taxonomy-categories.twig" %}
+    </div>
+	</header><!-- .entry-header -->
+	{% endblock %}
+
+  {% block content %}
+	<div class="entry-summary">
+		{{ post.get_preview(30) }}
+	</div>
+  {% endblock %}
+
+  {% block entry_footer %}
+	<footer class="entry-footer">
+	</footer><!-- .entry-meta -->
+  {% endblock %}
+
+</article><!-- #post-## -->
