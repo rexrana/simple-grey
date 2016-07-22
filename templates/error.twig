@@ -1,0 +1,5 @@
+{% extends "base.twig" %}
+
+{% block main %}
+  {% include['errors/' ~ error_code ~ '.twig', 'errors/error.twig'] %}
+{% endblock %}

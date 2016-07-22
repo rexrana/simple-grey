@@ -94,13 +94,10 @@
     margin: @margin 0;
     .nav-links {
       &:extend(.clearfix all);
-      .baseline-size(.875);
+      .baseline-size(1);
         margin: 0;
 
       a {
-        .button;
-        .button-wrap;
-        .form-control-focus();
         text-decoration: none;
         text-align: inherit;
         margin: .75em 0;
@@ -125,6 +122,11 @@
         float: right;
       }
     }
+}
+.paging-navigation .nav-links a {
+  .button;
+  .button-wrap;
+  .form-control-focus();
 }
 .numbered-pagination {
   &:extend(.clearfix all);

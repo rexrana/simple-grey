@@ -367,9 +367,9 @@ label {
 }
 small,
 .small {
-  font-size: 0.75em;
-  line-height: 2em;
-  margin: 0 0 2em;
+  font-size: 0.875em;
+  line-height: 1.71428571em;
+  margin: 0 0 1.71428571em;
 }
 /* TABLES */
 table {
@@ -1060,11 +1060,11 @@ input[type="submit"]:focus {
   }
   .image-left {
     float: left;
-    margin-right: 1rem;
+    margin-right: 2rem;
   }
   .image-right {
     float: right;
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
 }
 @font-face {

@@ -366,9 +366,9 @@ label {
 }
 small,
 .small {
-  font-size: 0.75em;
-  line-height: 2em;
-  margin: 0 0 2em;
+  font-size: 0.875em;
+  line-height: 1.71428571em;
+  margin: 0 0 1.71428571em;
 }
 /* TABLES */
 table {
@@ -1499,83 +1499,16 @@ input[type="submit"]:focus {
 }
 .post-navigation .nav-links,
 .paging-navigation .nav-links {
-  font-size: 0.875em;
-  line-height: 1.71428571em;
-  margin: 0 0 1.71428571em;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0 0 1.5em;
   margin: 0;
 }
 .post-navigation .nav-links a,
 .paging-navigation .nav-links a {
-  display: inline-block;
-  margin-bottom: 0;
-  font-weight: 100%;
-  font-size: 100%;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  background-image: none;
-  white-space: nowrap;
-  padding: .5em 1em;
-  border-radius: 0.25em;
-  background-color: #eee;
-  color: #333;
-  border-width: 0.0625em;
-  border-style: solid;
-  border-color: #999;
-  white-space: normal;
   text-decoration: none;
   text-align: inherit;
   margin: .75em 0;
-}
-.post-navigation .nav-links a:hover,
-.paging-navigation .nav-links a:hover,
-.post-navigation .nav-links a:focus,
-.paging-navigation .nav-links a:focus {
-  background-color: #eee;
-  border-color: #666;
-}
-.post-navigation .nav-links a:active,
-.paging-navigation .nav-links a:active,
-.post-navigation .nav-links a.active,
-.paging-navigation .nav-links a.active {
-  color: #333333;
-  background-color: #eeeeee;
-}
-.post-navigation .nav-links a:focus,
-.paging-navigation .nav-links a:focus {
-  outline: thin dotted #333;
-  outline: 0.3125em auto -webkit-focus-ring-color;
-  outline-offset: -0.125em;
-}
-.post-navigation .nav-links a:hover,
-.paging-navigation .nav-links a:hover,
-.post-navigation .nav-links a:focus,
-.paging-navigation .nav-links a:focus {
-  text-decoration: none;
-}
-.post-navigation .nav-links a:active,
-.paging-navigation .nav-links a:active,
-.post-navigation .nav-links a.active,
-.paging-navigation .nav-links a.active {
-  outline: 0;
-  background-image: none;
-}
-.post-navigation .nav-links a.disabled,
-.paging-navigation .nav-links a.disabled,
-.post-navigation .nav-links a[disabled],
-.paging-navigation .nav-links a[disabled],
-fieldset[disabled] .post-navigation .nav-links a,
-fieldset[disabled] .paging-navigation .nav-links a {
-  cursor: not-allowed;
-  pointer-events: none;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
-}
-.post-navigation .nav-links a:focus,
-.paging-navigation .nav-links a:focus {
-  border-color: #666666;
-  outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 102, 102, 0.6);
 }
 .post-navigation .nav-links .nav-previous a .meta-nav,
 .paging-navigation .nav-links .nav-previous a .meta-nav {
@@ -1600,6 +1533,62 @@ fieldset[disabled] .paging-navigation .nav-links a {
   .paging-navigation .nav-next {
     float: right;
   }
+}
+.paging-navigation .nav-links a {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 100%;
+  font-size: 100%;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  white-space: nowrap;
+  padding: .5em 1em;
+  border-radius: 0.25em;
+  background-color: #eee;
+  color: #333;
+  border-width: 0.0625em;
+  border-style: solid;
+  border-color: #999;
+  white-space: normal;
+}
+.paging-navigation .nav-links a:hover,
+.paging-navigation .nav-links a:focus {
+  background-color: #eee;
+  border-color: #666;
+}
+.paging-navigation .nav-links a:active,
+.paging-navigation .nav-links a.active {
+  color: #333333;
+  background-color: #eeeeee;
+}
+.paging-navigation .nav-links a:focus {
+  outline: thin dotted #333;
+  outline: 0.3125em auto -webkit-focus-ring-color;
+  outline-offset: -0.125em;
+}
+.paging-navigation .nav-links a:hover,
+.paging-navigation .nav-links a:focus {
+  text-decoration: none;
+}
+.paging-navigation .nav-links a:active,
+.paging-navigation .nav-links a.active {
+  outline: 0;
+  background-image: none;
+}
+.paging-navigation .nav-links a.disabled,
+.paging-navigation .nav-links a[disabled],
+fieldset[disabled] .paging-navigation .nav-links a {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+}
+.paging-navigation .nav-links a:focus {
+  border-color: #666666;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 102, 102, 0.6);
 }
 .numbered-pagination {
   text-align: center;
@@ -5738,12 +5727,12 @@ img.alignright {
   .image-left,
   img.alignleft {
     float: left;
-    margin-right: 1rem;
+    margin-right: 2rem;
   }
   .image-right,
   img.alignright {
     float: right;
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
 }
 .gallery {

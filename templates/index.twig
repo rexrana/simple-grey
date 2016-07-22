@@ -1,6 +1,6 @@
 {% extends "base.twig" %}
 
-{% block content %}
+{% block main %}
   {% for post in posts %}
     {% include['content/teaser-' ~ post.post_type ~ '.twig', 'content/teaser.twig'] %}
   {% endfor %}

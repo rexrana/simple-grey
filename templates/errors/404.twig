@@ -1,0 +1,8 @@
+{% extends "errors/error-page.twig" %}
+
+{% block content %}
+  <div class="page-content">
+    <p>{{__( 'Sorry! We can&rsquo;t seem to find the content you were looking for. Maybe try a search?', 'simple-grey' )}}</p>
+    {{function('get_search_form')}}
+  </div>
+{% endblock %}

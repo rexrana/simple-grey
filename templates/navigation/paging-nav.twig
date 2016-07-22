@@ -1,10 +1,10 @@
 {% if pagination.prev or pagination.next %}
 {% if pagination_style == 'older-newer' %}
-  {% set prev_title = __( 'Older posts', 'simple-grey') %}
-  {% set next_title = __( 'Newer posts', 'simple-grey') %}
+  {% set next_title = __( 'Older posts', 'simple-grey') %}
+  {% set prev_title = __( 'Newer posts', 'simple-grey') %}
 {% else %}
-  {% set prev_title = __( 'Previous posts', 'simple-grey') %}
-  {% set next_title = __( 'Next posts', 'simple-grey') %}
+  {% set prev_title = __( 'Previous', 'simple-grey') %}
+  {% set next_title = __( 'Next', 'simple-grey') %}
 {% endif %}
 <nav id="paging-navigation" class="navigation paging-navigation" role="navigation">
   <h1 class="screen-reader-text">{{__('Post navigation', 'simple-grey')}}</h1>

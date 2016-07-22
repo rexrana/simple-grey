@@ -11,32 +11,32 @@
 
 /* BASE */
 html {
-    height: @basepct; 
-    font-size: @basepct; 
-    margin: 0; padding: 0; 
+    height: @basepct;
+    font-size: @basepct;
+    margin: 0; padding: 0;
     overflow-y: scroll; /* Force scrollbar in non-IE */
-} 
+}
 
 body {
-    padding: 0; 
-    min-height: @basepct; 
-    -webkit-font-smoothing:antialiased; 
-    font-smoothing:antialiased; 
-    text-rendering:optimizeLegibility; 
+    padding: 0;
+    min-height: @basepct;
+    -webkit-font-smoothing:antialiased;
+    font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
     font-family: @fonts-sans;
 } /* Improve default text rendering, handling of kerning pairs and ligatures */
 
 /* DEFAULT FONT SETTINGS */
 /* 16px base font size with 150% (24px) friendly, unitless line height and margin for vertical rhythm */
 /* Font-size percentage is based on 16px browser default size */
-body, button, input, select, textarea { 
-    font-size: @basepct; 
-    line-height: @baseline; 
-    *font-size: (@base + 0em); 
+body, button, input, select, textarea {
+    font-size: @basepct;
+    line-height: @baseline;
+    *font-size: (@base + 0em);
 } /* IE7 and older can't resize px based text */
 
 p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu {
-    margin: 0 0 (@baseline + 0em); 
+    margin: 0 0 (@baseline + 0em);
     padding: 0
 }
 
@@ -50,23 +50,23 @@ h4 { .baseline-size( 1.5 ); }
 h5 { .baseline-size( 1.25 ); }
 h6 { .baseline-size( 1.125 ); }
 p, .p, ol, ul, blockquote, pre, td, th, label { .baseline-size( 1 ); }
-small, .small { .baseline-size( 0.75 ); }
+small, .small { .baseline-size( 0.875 ); }
 
 /* TABLES */
 table {
-    border-collapse: collapse; 
-    border-spacing: 0; 
-    .baseline-size(@base, @baseline, @base, 2); 
-    border-bottom: (@bdr-width + 0em) solid @col-border; 
+    border-collapse: collapse;
+    border-spacing: 0;
+    .baseline-size(@base, @baseline, @base, 2);
+    border-bottom: (@bdr-width + 0em) solid @col-border;
 }
 th {
     text-align: left
 }
 
 @cellpad: (@baseline/2);
-th, td { 
-    padding: (@cellpad + 0em) (@cellpad + 0em) (@cellpad - @bdr-width + 0em) (@cellpad + 0em); .bordered(@bdr-width + 0em); 
-    border-bottom: 0 solid @col-border; 
+th, td {
+    padding: (@cellpad + 0em) (@cellpad + 0em) (@cellpad - @bdr-width + 0em) (@cellpad + 0em); .bordered(@bdr-width + 0em);
+    border-bottom: 0 solid @col-border;
 }
 
 /* FORMS */
@@ -99,9 +99,9 @@ li ul, li ol {margin: 0 1.5em}
 dl dd {margin-left: 1.5em}
 
 /* HYPERLINKS */
-a { 
-	text-decoration: none; 
-	color: @col-link; 
+a {
+	text-decoration: none;
+	color: @col-link;
 	&:link { color: @col-link }
 	&:visited { color: @col-link-visited }
 	&:hover, &:link:hover { color: @col-link-hover; text-decoration: underline }
@@ -114,16 +114,16 @@ a:hover, a:active {
 }
 
 /* Fluid images and rich media */
-img, object, embed, video { 
-    max-width: 100%; 
-    height: auto; 
+img, object, embed, video {
+    max-width: 100%;
+    height: auto;
     _width: 100%
 }
 
 
-img { 
-    margin:0; 
-    padding: 0; 
+img {
+    margin:0;
+    padding: 0;
     /* Improve IE's resizing of images */
     -ms-interpolation-mode: bicubic
 }
@@ -135,10 +135,10 @@ figure {
 
 /* ABBREVIATION */
 abbr {
-    border-color: @col-border; 
+    border-color: @col-border;
 }
 
-abbr[title], 
+abbr[title],
 dfn[title] {
     cursor: help
 }

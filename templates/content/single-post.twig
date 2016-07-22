@@ -1,14 +1,5 @@
 {% extends "content/teaser.twig" %}
 
-{% block entry_header %}
-  <header class="entry-header">
-    <h2 class="entry-title">
-      <a href="{{ post.link }}" rel="bookmark">{{ post.title }}</a>
-    </h2>
-  </header>
-  <!-- .entry-header -->
-{% endblock %}
-
 {% block content %}
   <div class="entry-content">
     {{post.content}}
@@ -19,11 +10,7 @@
 
 {% block entry_footer %}
   <footer class="entry-footer">
-    <p class="entry-meta">
-      {% include "partials/posted-on.twig" %}
-      {% include "partials/post-updated.twig" %}
-    </p>
-    <p class="entry-meta">{% include "partials/post-taxonomy-categories.twig" %}</p>
+    {% include "partials/post-updated.twig" %}
     <p class="entry-meta">{% include "partials/post-taxonomy-tags.twig" %}</p>
     <p class="entry-meta">{% include "partials/post-edit.twig" %}</p>
   </footer>

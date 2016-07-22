@@ -1,10 +1,15 @@
 {% extends "index.twig" %}
 
 {% block page_header %}
-  {% if title or archive_descripton %}
-  <header class="page-header col">
+  <header class="page-header">
     {% if title %}<h1 class="page-title">{{title}}</h1>{% endif %}
     {% if archive_descripton %}<div class="taxonomy-description">{{archive_descripton}}</div>{% endif %}
+    <p class="small">
+    {% if posts_page %}
+    <a href="{{ posts_page.link }}" title="{{posts_page.name|e('html-attr')}}" rel="home">{{__('back to %s', 'simple-grey')|format(posts_page.title)}}</a>
+    {% else %}
+    <a href="{{ site.link }}" title="{{site.name}}" rel="home">{{__('back to home', 'simple-grey')}}</a>
+    {% endif %}
+    </p>
   </header><!-- .page-header -->
-  {% endif %}
 {% endblock %}

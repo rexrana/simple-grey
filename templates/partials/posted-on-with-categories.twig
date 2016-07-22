@@ -1,0 +1,9 @@
+<span class="posted-on">{{ __( 'Posted on %1$s by %2$s', 'simple-grey' )|format( time_posted, author_posted ) }}</span>
+{% if post.terms('category') %}
+  <span class="post-taxonomy post-categories">
+    {{ __( ' in ', 'simple-grey' ) }}
+    {% for term in post.terms('category') %}
+      <a href="{{term.link}}" rel="category">{{term.name}}</a>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+  </span>
+{% endif %}
