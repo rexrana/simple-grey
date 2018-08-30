@@ -64,7 +64,7 @@ gulp.task('font-awesome', function() {
 
 // generate .pot files for translation
 gulp.task('translation', function () {
-	return gulp.src('./**/*.php')
+	return gulp.src(['./**/*.php', './**/*.twig'])
 		.pipe(sort())
 		.pipe(wpPot( {
 			domain: 'simple-grey',
