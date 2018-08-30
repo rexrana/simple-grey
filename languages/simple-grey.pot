@@ -1,192 +1,197 @@
-# Copyright (C) 2016 Peter Hebert
+# Copyright (C) 2018 Peter Hebert
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: simple-grey 1.2.0\n"
+"Project-Id-Version: simple-grey\n"
 "Report-Msgid-Bugs-To: https://github.com/peterhebert/simple-grey/issues\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Peter Hebert <peter@peterhebert.com>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:14
-msgid "Oops! That page can&rsquo;t be found."
+#: 404.php:13
+msgid "404 Error - Not Found"
 msgstr ""
 
-#: 404.php:18
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+#: archive.php:21, inc/template-tags.php:257
+msgid "Archives"
 msgstr ""
 
-#: 404.php:26
-msgid "Most Used Categories"
+#: archive.php:24, inc/template-tags.php:231
+msgid "Day: %s"
 msgstr ""
 
-#: 404.php:43
-msgid "Try looking in the monthly archives. %1$s"
+#: archive.php:24, inc/template-tags.php:231
+msgctxt "daily archives date format"
+msgid "F j, Y"
 msgstr ""
 
-#: comments.php:28
-msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
-
-#: comments.php:35, comments.php:52
-msgid "Comment navigation"
+#: archive.php:26, inc/template-tags.php:229
+msgid "Month: %s"
 msgstr ""
 
-#: comments.php:36, comments.php:53
-msgid "&larr; Older Comments"
+#: archive.php:26, inc/template-tags.php:229
+msgctxt "monthly archives date format"
+msgid "F Y"
 msgstr ""
 
-#: comments.php:37, comments.php:54
-msgid "Newer Comments &rarr;"
+#: archive.php:28, inc/template-tags.php:227
+msgid "Year: %s"
 msgstr ""
 
-#: comments.php:64
-msgid "Comments are closed."
+#: archive.php:28, inc/template-tags.php:227
+msgctxt "yearly archives date format"
+msgid "Y"
 msgstr ""
 
-#: content-aside.php:22, content-gallery.php:16, content-page.php:27, content-single.php:27, content.php:32
-msgid "Pages:"
+#: archive.php:30, inc/template-tags.php:223
+msgid "Tag: %s"
 msgstr ""
 
-#: content-aside.php:31, content-gallery.php:25, content-page.php:34, content-single.php:35, content.php:42, inc/template-tags.php:167, inc/template-tags.php:186, inc/template-tags.php:337
-msgid "Edit"
+#: archive.php:32, inc/template-tags.php:221
+msgid "Category: %s"
 msgstr ""
 
-#: content-none.php:13
-msgid "Nothing Found"
+#: archive.php:35, inc/template-tags.php:225
+msgid "Author: %s"
 msgstr ""
 
-#: content-none.php:19
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+#: archive.php:37, inc/template-tags.php:233
+msgctxt "post format archive title"
+msgid "Asides"
 msgstr ""
 
-#: content-none.php:23
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+#: archive.php:39, inc/template-tags.php:235
+msgctxt "post format archive title"
+msgid "Galleries"
 msgstr ""
 
-#: content-none.php:28
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+#: archive.php:41, inc/template-tags.php:237
+msgctxt "post format archive title"
+msgid "Images"
 msgstr ""
 
-#: content.php:26
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+#: archive.php:43, inc/template-tags.php:239
+msgctxt "post format archive title"
+msgid "Videos"
 msgstr ""
 
-#: footer.php:34
-msgid "Proudly powered by %s"
+#: archive.php:45, inc/template-tags.php:241
+msgctxt "post format archive title"
+msgid "Quotes"
 msgstr ""
 
-#: footer.php:34
-msgid "Theme: %1$s by %2$s."
+#: archive.php:47, inc/template-tags.php:243
+msgctxt "post format archive title"
+msgid "Links"
 msgstr ""
 
-#: footer.php:34
-msgid "<a href=\"%1$s\">%2$s</a>"
+#: archive.php:49, inc/template-tags.php:245
+msgctxt "post format archive title"
+msgid "Statuses"
 msgstr ""
 
-#: footer.php:34
-msgid "https://github.com/peterhebert/simple-grey"
+#: archive.php:51, inc/template-tags.php:247
+msgctxt "post format archive title"
+msgid "Audio"
 msgstr ""
 
-#: footer.php:34
-msgid "Simple Grey"
+#: archive.php:53, inc/template-tags.php:249
+msgctxt "post format archive title"
+msgid "Chats"
 msgstr ""
 
-#: footer.php:34
-msgid "<a href=\"%1$s\" rel=\"designer\">%2$s</a>"
+#: archive.php:57, inc/template-tags.php:255
+msgid "%1$s: %2$s"
 msgstr ""
 
-#: footer.php:34
-msgid "http://peterhebert.com/"
+#: archive.php:61, inc/template-tags.php:251
+msgid "Archives: %s"
 msgstr ""
 
-#: footer.php:34
-msgid "Peter Hebert"
-msgstr ""
-
-#: functions.php:64
+#: functions.php:188
 msgid "Secondary"
 msgstr ""
 
-#: functions.php:74
+#: functions.php:198
 msgid "Featured"
 msgstr ""
 
-#: functions.php:83, inc/customizer.php:170
+#: functions.php:207, inc/customizer.php:201
 msgid "Footer"
 msgstr ""
 
-#: header.php:21
-msgid "Skip to Content"
-msgstr ""
-
-#: header.php:22
-msgid "Skip to Navigation"
-msgstr ""
-
-#: header.php:23
-msgid "Skip to Footer"
-msgstr ""
-
-#: header.php:50
-msgid "Menu"
-msgstr ""
-
-#: inc/customizer.php:81
+#: inc/customizer.php:90
 msgid "Site Branding"
 msgstr ""
 
-#: inc/customizer.php:85
+#: inc/customizer.php:94
 msgid "Site Description"
 msgstr ""
 
-#: inc/customizer.php:93
+#: inc/customizer.php:102
 msgid "Add drop shadow to header elements"
 msgstr ""
 
-#: inc/customizer.php:102
+#: inc/customizer.php:111
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:114
+#: inc/customizer.php:123
 msgid "Logo Style"
 msgstr ""
 
-#: inc/customizer.php:128
+#: inc/customizer.php:135
 msgid "Navigation"
 msgstr ""
 
-#: inc/customizer.php:144
+#: inc/customizer.php:151
 msgid "Navigation Style"
 msgstr ""
 
-#: inc/customizer.php:151
+#: inc/customizer.php:158
 msgid "Navigation style applied to the primary menu."
 msgstr ""
 
-#: inc/customizer.php:157
-msgid "Reading"
-msgstr ""
-
-#: inc/customizer.php:162
-msgid "Show Date Updated"
-msgstr ""
-
 #: inc/customizer.php:175
-msgid "Footer Top Text"
+msgid "Pagination Style"
+msgstr ""
+
+#: inc/customizer.php:178
+msgid "Numbered"
+msgstr ""
+
+#: inc/customizer.php:179
+msgid "Previous/Next"
+msgstr ""
+
+#: inc/customizer.php:180
+msgid "Older/Newer"
 msgstr ""
 
 #: inc/customizer.php:182
+msgid "Type of naviagtion between posts pages"
+msgstr ""
+
+#: inc/customizer.php:188
+msgid "Reading"
+msgstr ""
+
+#: inc/customizer.php:193
+msgid "Show Date Updated"
+msgstr ""
+
+#: inc/customizer.php:206
+msgid "Footer Top Text"
+msgstr ""
+
+#: inc/customizer.php:213
 msgid "Footer Bottom Text"
 msgstr ""
 
-#: inc/customizer.php:189
+#: inc/customizer.php:220
 msgid "Show WordPress and Theme Credits"
 msgstr ""
 
@@ -206,197 +211,231 @@ msgstr ""
 msgid "View all posts in %s"
 msgstr ""
 
-#: inc/template-tags.php:71
-msgid "Posts navigation"
-msgstr ""
-
-#: inc/template-tags.php:75
-msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-msgstr ""
-
-#: inc/template-tags.php:79
-msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: inc/template-tags.php:142
-msgid "Post navigation"
-msgstr ""
-
-#: inc/template-tags.php:145
-msgctxt "Previous post link"
-msgid "<span class=\"meta-nav\">&larr;</span>%title"
-msgstr ""
-
-#: inc/template-tags.php:146
-msgctxt "Next post link"
-msgid "%title<span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: inc/template-tags.php:167
+#: inc/template-tags.php:131
 msgid "Pingback:"
 msgstr ""
 
-#: inc/template-tags.php:177
+#: inc/template-tags.php:131, inc/template-tags.php:150, inc/template-tags.php:204, templates/partials/comment.twig:27, templates/partials/post-edit.twig:2
+msgid "Edit"
+msgstr ""
+
+#: inc/template-tags.php:141
 msgid "%s <span class=\"says\">says:</span>"
 msgstr ""
 
-#: inc/template-tags.php:183
+#: inc/template-tags.php:147
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:190
+#: inc/template-tags.php:154
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:240
-msgid "Posted on %1$s by %2$s"
-msgstr ""
-
-#: inc/template-tags.php:258, inc/template-tags.php:261, inc/template-tags.php:319, inc/template-tags.php:325
+#: inc/template-tags.php:186, inc/template-tags.php:192
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:267
-msgid "and tagged %2$s."
-msgstr ""
-
-#: inc/template-tags.php:275
-msgid "in %1$s and tagged %2$s."
-msgstr ""
-
-#: inc/template-tags.php:277
-msgid "in %1$s."
-msgstr ""
-
-#: inc/template-tags.php:297
-msgid "Last updated on %1$s by %2$s."
-msgstr ""
-
-#: inc/template-tags.php:321
+#: inc/template-tags.php:188
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:327
+#: inc/template-tags.php:194
 msgid "Tagged %1$s"
 msgstr ""
 
-#: inc/template-tags.php:333
+#: inc/template-tags.php:200
 msgid "Leave a comment"
 msgstr ""
 
-#: inc/template-tags.php:333
+#: inc/template-tags.php:200
 msgid "1 Comment"
 msgstr ""
 
-#: inc/template-tags.php:333
+#: inc/template-tags.php:200
 msgid "% Comments"
-msgstr ""
-
-#: inc/template-tags.php:354
-msgid "Category: %s"
-msgstr ""
-
-#: inc/template-tags.php:356
-msgid "Tag: %s"
-msgstr ""
-
-#: inc/template-tags.php:358
-msgid "Author: %s"
-msgstr ""
-
-#: inc/template-tags.php:360
-msgid "Year: %s"
-msgstr ""
-
-#: inc/template-tags.php:360
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: inc/template-tags.php:362
-msgid "Month: %s"
-msgstr ""
-
-#: inc/template-tags.php:362
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#: inc/template-tags.php:364
-msgid "Day: %s"
-msgstr ""
-
-#: inc/template-tags.php:364
-msgctxt "daily archives date format"
-msgid "F j, Y"
-msgstr ""
-
-#: inc/template-tags.php:366
-msgctxt "post format archive title"
-msgid "Asides"
-msgstr ""
-
-#: inc/template-tags.php:368
-msgctxt "post format archive title"
-msgid "Galleries"
-msgstr ""
-
-#: inc/template-tags.php:370
-msgctxt "post format archive title"
-msgid "Images"
-msgstr ""
-
-#: inc/template-tags.php:372
-msgctxt "post format archive title"
-msgid "Videos"
-msgstr ""
-
-#: inc/template-tags.php:374
-msgctxt "post format archive title"
-msgid "Quotes"
-msgstr ""
-
-#: inc/template-tags.php:376
-msgctxt "post format archive title"
-msgid "Links"
-msgstr ""
-
-#: inc/template-tags.php:378
-msgctxt "post format archive title"
-msgid "Statuses"
-msgstr ""
-
-#: inc/template-tags.php:380
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr ""
-
-#: inc/template-tags.php:382
-msgctxt "post format archive title"
-msgid "Chats"
-msgstr ""
-
-#: inc/template-tags.php:384
-msgid "Archives: %s"
-msgstr ""
-
-#: inc/template-tags.php:388
-msgid "%1$s: %2$s"
-msgstr ""
-
-#: inc/template-tags.php:390
-msgid "Archives"
-msgstr ""
-
-#: maintenance.php:21
-msgid "Site Under Maintenance"
-msgstr ""
-
-#: maintenance.php:25
-msgid "We're currently performing maintenance on this website. Please check back soon."
 msgstr ""
 
 #: search.php:15
 msgid "Search Results for: %s"
+msgstr ""
+
+#: templates/archive.twig:9
+msgid "back to %s"
+msgstr ""
+
+#: templates/archive.twig:11
+msgid "back to home"
+msgstr ""
+
+#: templates/base.twig:10
+msgid "Skip to Content"
+msgstr ""
+
+#: templates/base.twig:11
+msgid "Skip to Navigation"
+msgstr ""
+
+#: templates/base.twig:12
+msgid "Skip to Footer"
+msgstr ""
+
+#: templates/base.twig:34
+msgid "Menu"
+msgstr ""
+
+#: templates/base.twig:101
+msgid "<a href=\"%1$s\" rel=\"generator\">%2$s</a>"
+msgstr ""
+
+#: templates/base.twig:102, templates/partials/footer.twig:34
+msgid "<a href=\"%1$s\">%2$s</a>"
+msgstr ""
+
+#: templates/base.twig:102, templates/partials/footer.twig:34
+msgid "Simple Grey"
+msgstr ""
+
+#: templates/base.twig:103, templates/partials/footer.twig:34
+msgid "<a href=\"%1$s\" rel=\"designer\">%2$s</a>"
+msgstr ""
+
+#: templates/base.twig:103, templates/partials/footer.twig:34
+msgid "http://peterhebert.com/"
+msgstr ""
+
+#: templates/base.twig:103, templates/partials/footer.twig:34
+msgid "Peter Hebert"
+msgstr ""
+
+#: templates/base.twig:105
+msgid "Proudly powered by %1$s. Theme: %2$s by %3$s."
+msgstr ""
+
+#: templates/content/none.twig:3
+msgid "Nothing Found"
+msgstr ""
+
+#: templates/content/none.twig:8
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: templates/content/none.twig:10
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: templates/content/none.twig:13
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: templates/content/single-page.twig:6, templates/content/teaser.twig:11
+msgid "Image for %s"
+msgstr ""
+
+#: templates/content/teaser.twig:1
+msgid "<time class=\"entry-date published\" datetime=\"%1$s\">%2$s</time>"
+msgstr ""
+
+#: templates/content/teaser.twig:2
+msgid "<time class=\"updated\" datetime=\"%1$s\">%2$s</time>"
+msgstr ""
+
+#: templates/content/teaser.twig:3, templates/content/teaser.twig:4
+msgid "<a class=\"author vcard\" href=\"%1$s\">%2$s</a>"
+msgstr ""
+
+#: templates/errors/404.twig:5
+msgid "Sorry! We can&rsquo;t seem to find the content you were looking for. Maybe try a search?"
+msgstr ""
+
+#: templates/maintenance.twig:6
+msgid "Site Under Maintenance"
+msgstr ""
+
+#: templates/maintenance.twig:11
+msgid "We're currently performing maintenance on this website. Please check back soon."
+msgstr ""
+
+#: templates/navigation/numbered-nav.twig:2, templates/navigation/paging-nav.twig:10, templates/navigation/post-nav.twig:2
+msgid "Post navigation"
+msgstr ""
+
+#: templates/navigation/paging-nav.twig:3
+msgid "Older posts"
+msgstr ""
+
+#: templates/navigation/paging-nav.twig:4
+msgid "Newer posts"
+msgstr ""
+
+#: templates/navigation/paging-nav.twig:6
+msgid "Previous"
+msgstr ""
+
+#: templates/navigation/paging-nav.twig:7
+msgid "Next"
+msgstr ""
+
+#: templates/partials/comment.twig:7
+msgid "Avatar for %s"
+msgstr ""
+
+#: templates/partials/comment.twig:16
+msgid "on"
+msgstr ""
+
+#: templates/partials/comment.twig:17
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: templates/partials/comment.twig:30
+msgid "Reply"
+msgstr ""
+
+#: templates/partials/comments.twig:5
+msgid "One comment on &ldquo;%s&rdquo;"
+msgstr ""
+
+#: templates/partials/comments.twig:7
+msgid "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr ""
+
+#: templates/partials/comments.twig:21
+msgid "Comments are closed."
+msgstr ""
+
+#: templates/partials/footer.twig:34
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: templates/partials/footer.twig:34
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
+#: templates/partials/footer.twig:34
+msgid "https://github.com/peterhebert/simple-grey"
+msgstr ""
+
+#: templates/partials/post-taxonomy-categories.twig:3
+msgid "Categories: "
+msgstr ""
+
+#: templates/partials/post-taxonomy-tags.twig:3
+msgid "Tags: "
+msgstr ""
+
+#: templates/partials/post-updated.twig:2
+msgid "Last updated on %1$s by %2$s."
+msgstr ""
+
+#: templates/partials/posted-on-with-categories.twig:1
+msgid "Posted on %1$s by %2$s"
+msgstr ""
+
+#: templates/partials/posted-on-with-categories.twig:4
+msgid " in "
+msgstr ""
+
+#: templates/partials/posted-on.twig:1
+msgid "Posted on %1$s by %2$s."
 msgstr ""
