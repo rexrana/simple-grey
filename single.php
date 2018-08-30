@@ -8,19 +8,20 @@
 get_header(); ?>
 
     <main id="main" role="main">
-		<?php while ( have_posts() ) : the_post(); ?>
-
-			<?php get_template_part( 'content', 'single' ); ?>
-      <?php simple_grey_post_nav(); ?>
+		<?php
+    while ( have_posts() ) : the_post(); ?>
 
 			<?php
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-			?>
+      get_template_part( 'content', 'single' );
 
-		<?php endwhile; // end of the loop. ?>
+      // If comments are open or we have at least one comment, load up the comment template.
+      if ( comments_open() || get_comments_number() ) :
+        comments_template();
+      endif;
+
+      get_template_part( 'post', 'navigation' );
+
+    endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
       <?php get_sidebar(); ?>

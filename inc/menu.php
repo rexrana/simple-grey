@@ -16,14 +16,13 @@ function simple_grey_main_menu() {
 
 	$params = array(
 			'theme_location'  => 'primary',
-			'container'       => 'div',
-			'container_class' => 'row',
+			'container'       => false,
 			'walker'          => new Aria_Walker_Nav_Menu(),
-			'items_wrap'      => '<ul id="%1$s" class="%2$s" role="menubar">%3$s</ul>',
+			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			'menu_class'      => 'nav-menu '.get_theme_mod( 'simple_grey_nav_style' )
 	);
 
-	if ( get_theme_mod( 'simple_grey_nav_style' ) == 'flat') :
+	if ( 'flat' == get_theme_mod( 'simple_grey_nav_style' ) ) :
 		$params['depth'] = -1;
 	endif;
 
