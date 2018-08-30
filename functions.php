@@ -34,21 +34,55 @@
 		add_action( 'after_setup_theme', array( $this, 'theme_setup' ) );
  		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
  		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
- 		add_action( 'init', array( $this, 'register_post_types' ) );
- 		add_action( 'init', array( $this, 'register_taxonomies' ) );
- 		add_action( 'wp_enqueue_scripts', array( $this, 'add_theme_scripts' ) );
+    add_action( 'wp_enqueue_scripts', array( $this, 'add_theme_scripts' ) );
     add_action( 'widgets_init', array( $this, 'define_sidebars' ) );
 
  		parent::__construct();
  	}
 
- 	function register_post_types() {
- 		//this is where you can register custom post types
- 	}
+  function theme_setup() {
 
- 	function register_taxonomies() {
- 		//this is where you can register custom taxonomies
- 	}
+		// Make theme available for translation.
+		load_theme_textdomain( 'simple-grey', get_template_directory() . '/languages' );
+
+		// Add theme feature support.
+		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'post-formats' );
+ 		add_theme_support( 'menus' );
+		add_theme_support( 'title-tag' );
+		add_theme_support( 'post-thumbnails' );
+
+		// set thumbnail size
+	  set_post_thumbnail_size( 220, 220 );
+
+    // Add theme support for Custom Header
+  	$header_args = array(
+  		'header-text'            => false,
+  		'default-text-color'     => '',
+  		'default-image'          => '',
+  		'width'                  => 1000,
+  		'height'                 => 250,
+  		'flex-height'            => true,
+  		'wp-head-callback'       => 'simple_grey_header_style',
+  		'admin-head-callback'    => 'simple_grey_admin_header_style',
+  	);
+  	add_theme_support( 'custom-header', $header_args );
+
+  	/*
+  	 * Switch default core markup for search form, comment form, and comments
+  	 * to output valid HTML5.
+  	 */
+  	add_theme_support( 'html5', array(
+  		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
+  	) );
+
+  	/*
+  	 * Enable support for Post Formats.
+  	 * See http://codex.wordpress.org/Post_Formats
+  	 */
+  	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio' ) );
+
+	}
 
  	function add_to_context( $context ) {
 
@@ -148,57 +182,6 @@
 
  	}
 
-	function theme_setup() {
-
-		// Make theme available for translation.
-		load_theme_textdomain( 'simple-grey', get_template_directory() . '/languages' );
-
-		// Add theme feature support.
-		add_theme_support( 'automatic-feed-links' );
-		add_theme_support( 'post-formats' );
- 		add_theme_support( 'menus' );
-		add_theme_support( 'title-tag' );
-		add_theme_support( 'post-thumbnails' );
-
-		// set thumbnail size
-	  set_post_thumbnail_size( 220, 220 );
-
-    // Add theme support for Custom Header
-  	$header_args = array(
-  		'header-text'            => false,
-  		'default-text-color'     => '',
-  		'default-image'          => '',
-  		'width'                  => 1000,
-  		'height'                 => 250,
-  		'flex-height'            => true,
-  		'wp-head-callback'       => 'simple_grey_header_style',
-  		'admin-head-callback'    => 'simple_grey_admin_header_style',
-  	);
-  	add_theme_support( 'custom-header', $header_args );
-
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-	) );
-
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio' ) );
-
-	/*
-	 * Remove support for unused theme features.
-	 * See https://codex.wordpress.org/Theme_Features
-	 * See https://codex.wordpress.org/Function_Reference/remove_theme_support
-	 */
-	 remove_theme_support( 'custom-background' );
-
-	}
-
   function define_sidebars() {
 
       register_sidebar( array(
@@ -230,7 +213,6 @@
   	) );
 
   }
-
 
  } // end class TwigEnabledSite
 
