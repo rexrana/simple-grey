@@ -1,0 +1,16 @@
+  <nav class="numbered-pagination">
+    <h1 class="screen-reader-text">{{__('Post navigation', 'simple-grey')}}</h1>
+    <ul>
+    {% spaceless %}
+    {% if numbered_nav %}
+      {% for page in numbered_nav %}
+        {% if page.link is empty %}
+        <li class="{{ page.class|e('html_attr') }}">{{ page.text }}</li>
+        {% else %}
+        <li class="{{ page.class|e('html_attr') }}"><a href="{{ page.link|e('esc_url') }}">{{ page.text }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% endif %}
+    {% endspaceless %}
+    </ul>
+  </nav>

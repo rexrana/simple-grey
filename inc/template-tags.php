@@ -56,11 +56,11 @@ function get_the_modified_author_id() {
 endif; // get_the_modified_author_id
 
 
-if ( ! function_exists( 'simple_grey_numbered_pagingation' ) ) :
+if ( ! function_exists( 'simple_grey_numbered_pagination' ) ) :
 /**
- * Display numbered pagination links
+ * return array of numbered pagination links for Twig rendering
  */
-function simple_grey_numbered_pagingation($pages = '', $range = 2)
+function simple_grey_numbered_pagination($pages = '', $range = 2)
 {
   $showitems = ($range * 2)+1;
 
@@ -77,27 +77,43 @@ function simple_grey_numbered_pagingation($pages = '', $range = 2)
     }
   }
 
-  if(1 != $pages) : ?>
-    <nav class="numbered-pagination">
-      <h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'simple-grey' ); ?></h1>
-      <ul>
-    <?php if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<li><a href='".get_pagenum_link(1)."'>&laquo;</a></li>";
-    if($paged > 1 && $showitems < $pages) echo "<li><a href='".get_pagenum_link($paged - 1)."'>&lsaquo;</a></li>";
+  $links = array();
 
+  if(1 != $pages) {
+    // first page
+    if($paged > 2 && $paged > $range+1 && $showitems < $pages) {
+      $links[] = array( 'link' => get_pagenum_link(1), 'text' => '&laquo;', 'class' => '' );
+    }
+    // ?
+    if($paged > 1 && $showitems < $pages) {
+      $links[] = array( 'link' => get_pagenum_link($paged - 1), 'text' => '&lsaquo;' , 'class' => '' );
+    }
+    // loop through range in middle
     for ($i=1; $i <= $pages; $i++) {
       if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
       {
-        echo ($paged == $i)? "<li class='current'>".$i."</li>":"<li><a href='".get_pagenum_link($i)."'>".$i."</a></li>";
+        if ($paged == $i) {
+          $links[] = array( 'link' => null, 'text' => $i , 'class' => 'current' );
+        } else {
+          $links[] = array( 'link' => get_pagenum_link($i), 'text' => $i , 'class' => '' );
+        }
       }
     }
 
-    if ($paged < $pages && $showitems < $pages) echo "<li><a href='".get_pagenum_link($paged + 1)."'>&rsaquo;</a></li>";
-    if ($paged < $pages-1 && $paged+$range-1 < $pages && $showitems < $pages) echo "<li><a href='".get_pagenum_link($pages)."'>&raquo;</a></li>";
-    echo "</ul></nav>\n";
-  endif;
+    if ($paged < $pages && $showitems < $pages) {
+      $links[] = array( 'link' => get_pagenum_link($paged + 1), 'text' => '&rsaquo;' , 'class' => '' );
+    }
+
+    if ($paged < $pages-1 && $paged+$range-1 < $pages && $showitems < $pages) {
+      $links[] = array( 'link' => get_pagenum_link($pages), 'text' => '&raquo;' , 'class' => '' );
+    }
+
+  }
+
+
+  return $links;
 }
 endif;
-
 
 if ( ! function_exists( 'simple_grey_comment' ) ) :
 /**

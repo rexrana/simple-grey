@@ -11,6 +11,7 @@
 {% block entry_footer %}
   <footer class="entry-footer">
     {% include "partials/post-updated.twig" %}
+    <p class="entry-meta">{% include "partials/post-taxonomy-categories.twig" %}</p>
     <p class="entry-meta">{% include "partials/post-taxonomy-tags.twig" %}</p>
     <p class="entry-meta">{% include "partials/post-edit.twig" %}</p>
   </footer>

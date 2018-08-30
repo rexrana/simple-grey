@@ -69,6 +69,7 @@ if ( is_tag() ||  is_category() || is_tax() ) {
 
 $context['posts'] = Timber::get_posts();
 $context['pagination'] = Timber::get_pagination();
+$context['numbered_nav'] = simple_grey_numbered_pagination();
 
 $context['post_thumb_classes'] = 'image-left';
 $context['post_classes'] = 'post-teaser';

@@ -5,8 +5,9 @@
     {% include['content/teaser-' ~ post.post_type ~ '.twig', 'content/teaser.twig'] %}
   {% endfor %}
 
-  {% if pagination_style == false or pagination_style == 'numbered' %}
-      {{ function('simple_grey_numbered_pagingation') }}
+  {% if pagination_style == false %}
+  {% elseif pagination_style == 'numbered' and numbered_nav %}
+      {% include 'navigation/numbered-nav.twig' %}
   {% else %}
     {% include 'navigation/paging-nav.twig' %}
   {% endif %}
